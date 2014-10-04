@@ -1,0 +1,90 @@
+﻿@model IEnumerable<qsenseapp.Models.Job>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Jobs</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm())
+{ 
+<div class="form-group">
+    
+    <div class="col-md-10">
+        @Html.DropDownList("JobTypeLookup", (SelectList)ViewBag.JobTypeLookup, String.Empty, htmlAttributes: new { @class = "form-control" })
+        <input type="submit" value="Search" />
+
+    </div>
+</div>
+}
+
+<p></p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BusinessPartner.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceivedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.JobType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChargeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChargeRateHourNet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BudgetHours)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BusinessPartner.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceivedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DueOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChargeType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChargeRateHourNet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BudgetHours)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.JobID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.JobID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.JobID })
+        </td>
+    </tr>
+}
+
+</table>

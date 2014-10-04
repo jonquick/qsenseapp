@@ -1,0 +1,54 @@
+﻿@model qsenseapp.Models.Job
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Job</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessPartner.Name)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChargeType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChargeType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChargeRateHourNet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChargeRateHourNet)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JobID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,80 @@
+﻿@model qsenseapp.Models.JobExpense
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>JobExpense</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Job.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Job.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessPartnerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessPartnerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpenseType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpenseType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinishOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinishOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ChargeRateHourNet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChargeRateHourNet)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,67 @@
+﻿@model qsenseapp.Models.JobExpense
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JobExpense</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Job.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Job.Name)
+        </dd>
+
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpenseType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpenseType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => TimeZoneInfo.ConvertTimeFromUtc((DateTime)model.StartOn, TimeZoneInfo.Local))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinishOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => TimeZoneInfo.ConvertTimeFromUtc((DateTime)model.FinishOn,TimeZoneInfo.Local))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceNet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceNet)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JobExpenseID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

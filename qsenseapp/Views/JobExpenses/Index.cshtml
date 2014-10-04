@@ -1,0 +1,111 @@
+﻿@model IEnumerable<qsenseapp.Models.JobExpense>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Job.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job.BusinessPartner.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpenseType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinishOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PriceNet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValueNet)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job.BusinessPartner.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpenseType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FinishOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PriceNet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DurationFormatted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualNet)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.JobExpenseID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.JobExpenseID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.JobExpenseID })
+        </td>
+    </tr>
+}
+    <tr>
+        <th>
+           &nbsp;
+        </th>
+        <th>
+            &nbsp;
+        </th>
+        <th>
+            &nbsp;
+        </th>
+        <th>
+            &nbsp;
+        </th>
+        <th>
+            &nbsp;
+        </th>
+        <th>
+            &nbsp;
+        </th>
+        <th>
+            &nbsp;
+        </th>
+        <th>
+            &nbsp;
+        </th>
+        <th>
+           @Model.Sum(x => x.ActualNet)
+        </th>
+        <th></th>
+    </tr>
+</table>
