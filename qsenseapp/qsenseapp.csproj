@@ -61,6 +61,10 @@
     <Reference Include="DevExpress.XtraReports.v12.2.Web, Version=12.2.17.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v14.1, Version=14.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Exchange.WebServices, Version=15.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Microsoft\Exchange\Web Services\2.2\Microsoft.Exchange.WebServices.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -186,6 +190,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="api\Controllers\ActivitiesController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -193,6 +198,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\BusinessPartnersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobExpensesController.cs" />
@@ -212,13 +218,37 @@
     <Compile Include="Migrations\201410011408097_IncludeJobBudgetAmount.Designer.cs">
       <DependentUpon>201410011408097_IncludeJobBudgetAmount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201410161540219_ActivityModel001.cs" />
+    <Compile Include="Migrations\201410161540219_ActivityModel001.Designer.cs">
+      <DependentUpon>201410161540219_ActivityModel001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410161557087_ActivityModel002.cs" />
+    <Compile Include="Migrations\201410161557087_ActivityModel002.Designer.cs">
+      <DependentUpon>201410161557087_ActivityModel002.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410172220269_ActivityModel003.cs" />
+    <Compile Include="Migrations\201410172220269_ActivityModel003.Designer.cs">
+      <DependentUpon>201410172220269_ActivityModel003.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410201836282_ActivityModel004.cs" />
+    <Compile Include="Migrations\201410201836282_ActivityModel004.Designer.cs">
+      <DependentUpon>201410201836282_ActivityModel004.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410201852172_ActivityModel005.cs" />
+    <Compile Include="Migrations\201410201852172_ActivityModel005.Designer.cs">
+      <DependentUpon>201410201852172_ActivityModel005.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410211348118_JQ.cs" />
+    <Compile Include="Migrations\201410211348118_JQ.Designer.cs">
+      <DependentUpon>201410211348118_JQ.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\BusinessPartner.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\JobExpense.cs" />
-    <Compile Include="Models\qSenseDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportPreview.aspx.cs">
       <DependentUpon>ReportPreview.aspx</DependentUpon>
@@ -339,6 +369,11 @@
     <Content Include="Views\JobExpenses\Details.cshtml" />
     <Content Include="Views\JobExpenses\Edit.cshtml" />
     <Content Include="Views\JobExpenses\Index.cshtml" />
+    <Content Include="Views\Activities\Create.cshtml" />
+    <Content Include="Views\Activities\Delete.cshtml" />
+    <Content Include="Views\Activities\Details.cshtml" />
+    <Content Include="Views\Activities\Edit.cshtml" />
+    <Content Include="Views\Activities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -361,6 +396,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201410011408097_IncludeJobBudgetAmount.resx">
       <DependentUpon>201410011408097_IncludeJobBudgetAmount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410161540219_ActivityModel001.resx">
+      <DependentUpon>201410161540219_ActivityModel001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410161557087_ActivityModel002.resx">
+      <DependentUpon>201410161557087_ActivityModel002.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410172220269_ActivityModel003.resx">
+      <DependentUpon>201410172220269_ActivityModel003.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410201836282_ActivityModel004.resx">
+      <DependentUpon>201410201836282_ActivityModel004.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410201852172_ActivityModel005.resx">
+      <DependentUpon>201410201852172_ActivityModel005.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410211348118_JQ.resx">
+      <DependentUpon>201410211348118_JQ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="XtraReport1.resx">

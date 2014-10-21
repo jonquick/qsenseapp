@@ -14,7 +14,7 @@ using qsenseapp.Models;
 
 namespace qsenseapp.Controllers
 {
-    [Authorize]
+   
     public class AccountController : Controller
     {
         private ApplicationUserManager _userManager;
@@ -38,6 +38,30 @@ namespace qsenseapp.Controllers
                 _userManager = value;
             }
         }
+
+        // ### Updated action for partial view LoginPartial, to return the users, First Name only
+        [ChildActionOnly]
+        public ActionResult LoginPartial()
+        {
+            ApplicationUser user;
+
+            if (User.Identity.IsAuthenticated)
+            {
+                // ASP.NET Identity
+                user = UserManager.FindById(User.Identity.GetUserId());
+
+
+
+                // Membership
+                // var user = db.UserProfiles.SingleOrDefault(m => m.UserName == User.Identity.Name);
+            }
+            else
+            { 
+                user = null;
+            }
+            return PartialView("_LoginPartial", user);
+        }
+
 
         //
         // GET: /Account/Login
@@ -90,7 +114,7 @@ namespace qsenseapp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, FirstName = model.FirstName};
                 IdentityResult result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

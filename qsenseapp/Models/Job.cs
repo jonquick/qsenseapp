@@ -52,6 +52,8 @@ namespace qsenseapp.Models
 
 
         public virtual BusinessPartner BusinessPartner { get; set; }
+
+        public virtual ICollection<Activity> Activities { get; set; }
     }
 
     public class JobEditViewModel

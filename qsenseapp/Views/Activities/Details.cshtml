@@ -1,0 +1,66 @@
+﻿@model qsenseapp.Models.Activity
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Activity</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JobID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HasAppointment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HasAppointment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppointmentID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppointmentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinishOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinishOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ActivityID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

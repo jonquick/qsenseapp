@@ -15,7 +15,7 @@ namespace qsenseapp.Controllers
    
     public class JobsController : Controller
     {
-        private qSenseDbContext db = new qSenseDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
 
         public static IEnumerable<SelectListItem> GetEnumSelectList<T>()

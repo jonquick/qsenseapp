@@ -12,7 +12,7 @@ namespace qsenseapp.Controllers
 {
     public class BusinessPartnersController : Controller
     {
-        private qSenseDbContext db = new qSenseDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: BusinessPartners
         public ActionResult Index()

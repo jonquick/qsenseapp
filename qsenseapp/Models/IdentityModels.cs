@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 
 namespace qsenseapp.Models
 {
@@ -19,6 +20,10 @@ namespace qsenseapp.Models
 
             //is this working down
         }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public virtual ICollection<Activity> Activities { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -32,5 +37,11 @@ namespace qsenseapp.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<BusinessPartner> BusinessPartners { get; set; }
+        public System.Data.Entity.DbSet<Job> Jobs { get; set; }
+        public System.Data.Entity.DbSet<qsenseapp.Models.JobExpense> JobExpenses { get; set; }
+        public System.Data.Entity.DbSet<qsenseapp.Models.Activity> Activities { get; set; }
+
     }
 }

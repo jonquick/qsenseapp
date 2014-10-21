@@ -4,6 +4,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using qsenseapp.Models;
+using System.Web;
+using System.Data.Entity;
 
 namespace qsenseapp
 {
@@ -73,4 +75,87 @@ namespace qsenseapp
             return Task.FromResult(0);
         }
     }
+
+    public class ApplicationDbInitializer : CreateDatabaseIfNotExists<ApplicationDbContext>
+    {
+
+        protected override void Seed(ApplicationDbContext context)
+        {
+
+            InitializeIdentityForEF(context);
+
+            base.Seed(context);
+
+        }
+
+
+
+        //Create User=Admin@Admin.com with password=Admin@123456 in the Admin role        
+
+        public static void InitializeIdentityForEF(ApplicationDbContext db)
+        {
+
+           var userManager = new UserManager<ApplicationUser>(new 
+
+                                                UserStore<ApplicationUser>(db)); 
+
+                 var roleManager = new RoleManager<IdentityRole>(new 
+                                          RoleStore<IdentityRole>(db));
+
+            const string name = "admin@qsense.co.uk";
+
+            const string password = "Adm1rals38";
+
+            const string roleName = "Admin";
+
+            const string lastname = "System";
+
+            const string firstname = "Adminstrator";
+
+            //Create Role Admin if it does not exist
+
+            var role = roleManager.FindByName(roleName);
+
+            if (role == null)
+            {
+
+                role = new IdentityRole(roleName);
+
+                var roleresult = roleManager.Create(role);
+
+            }
+
+
+
+            var user = userManager.FindByName(name);
+
+            if (user == null)
+            {
+
+                user = new ApplicationUser { UserName = name, Email = name, FirstName = firstname, LastName = lastname };
+
+                var result = userManager.Create(user, password);
+
+                result = userManager.SetLockoutEnabled(user.Id, false);
+
+            }
+
+
+
+            // Add user admin to Role Admin if not already added
+
+            var rolesForUser = userManager.GetRoles(user.Id);
+
+            if (!rolesForUser.Contains(role.Name))
+            {
+
+                var result = userManager.AddToRole(user.Id, role.Name);
+
+            }
+
+        }
+
+    }
+
+
 }

@@ -5,14 +5,14 @@ namespace qsenseapp.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<qsenseapp.Models.qSenseDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<qsenseapp.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(qsenseapp.Models.qSenseDbContext context)
+        protected override void Seed(qsenseapp.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -12,7 +12,7 @@ namespace qsenseapp.Controllers
 {
     public class JobExpensesController : Controller
     {
-        private qSenseDbContext db = new qSenseDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: JobExpenses
         public ActionResult Index()

@@ -138,3 +138,9 @@ C:\GitHub\qsenseapp\qsenseapp\obj\Debug\qsenseapp.csproj.GenerateResource.Cache
 C:\GitHub\qsenseapp\qsenseapp\obj\Debug\qsenseapp.dll.licenses
 C:\GitHub\qsenseapp\qsenseapp\obj\Debug\qsenseapp.dll
 C:\GitHub\qsenseapp\qsenseapp\obj\Debug\qsenseapp.pdb
+C:\GitHub\qsenseapp\qsenseapp\obj\Debug\qsenseapp.Migrations.ActivityModel001.resources
+C:\GitHub\qsenseapp\qsenseapp\obj\Debug\qsenseapp.Migrations.ActivityModel002.resources
+C:\GitHub\qsenseapp\qsenseapp\obj\Debug\qsenseapp.Migrations.ActivityModel003.resources
+C:\GitHub\qsenseapp\qsenseapp\obj\Debug\qsenseapp.Migrations.ActivityModel004.resources
+C:\GitHub\qsenseapp\qsenseapp\obj\Debug\qsenseapp.Migrations.ActivityModel005.resources
+C:\GitHub\qsenseapp\qsenseapp\obj\Debug\qsenseapp.Migrations.JQ.resources
